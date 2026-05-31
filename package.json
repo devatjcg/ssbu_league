@@ -1,0 +1,8 @@
+{
+  "name": "ssbu-league",
+  "private": true,
+  "description": "Repo-level helper scripts (deployment etc.) for the SSBU League app",
+  "scripts": {
+    "release": "bash scripts/release.sh"
+  }
+}

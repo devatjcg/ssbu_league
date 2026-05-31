@@ -37,6 +37,6 @@ docker-compose -f compose-prod.yaml down
 status "Starting new containers..."
 docker-compose -f compose-prod.yaml up -d --build
 
-# Show logs
-status "Deployment complete! Showing logs..."
-docker-compose -f compose-prod.yaml logs -f webapp
+# Show recent logs (bounded so remote-triggered deploys return instead of hanging)
+status "Deployment complete! Showing recent logs..."
+docker-compose -f compose-prod.yaml logs --tail=80 webapp
