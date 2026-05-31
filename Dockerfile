@@ -1,5 +1,7 @@
-# Use a slim OpenJDK base image
-FROM openjdk:17-jdk-slim
+# Eclipse Temurin 21 JRE - matches the Java 21 build target. A JRE (not JDK) is
+# enough since we only run a pre-built jar. The old openjdk:* images are
+# deprecated and were Java 17, which cannot run Java 21 bytecode.
+FROM eclipse-temurin:21-jre-jammy
 LABEL authors="johnny"
 
 # Create app directory

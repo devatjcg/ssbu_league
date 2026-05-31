@@ -25,6 +25,11 @@ git fetch origin
 git checkout $BRANCH
 git pull origin $BRANCH
 
+# Build frontend (outputs into src/main/resources/static, which mvn then bundles
+# into the jar). Requires Node >= 20.19 (Vite 8) - the server runs Node 22.
+status "Building frontend..."
+( cd frontend && npm ci && npm run build )
+
 # Build application
 status "Building application..."
 ./mvnw clean package -DskipTests
