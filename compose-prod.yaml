@@ -1,3 +1,5 @@
+name: ssbu_league
+
 services:
   postgres-prod:
     image: 'postgres:15-alpine'
@@ -38,6 +40,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-prod:5432/${POSTGRES_PROD_DB}
       SPRING_DATASOURCE_USERNAME: ${POSTGRES_PROD_USER}
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PROD_PASSWORD}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
     ports:
       # nginx proxies from the host to localhost:8080 - no need to expose publicly.
       - '127.0.0.1:8080:8080'
